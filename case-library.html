@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballard Center AI Learning System - Complete Case Research Library</title>
+    <style>
+        /* ===== BALLARD CENTER BRAND SYSTEM ===== */
+        :root {
+            --ballard-blue: #33a1dd;
+            --ballard-black: #000000;
+            --ballard-white: #ffffff;
+            --ballard-gray: #666666;
+            --ballard-light-gray: #f8f9fa;
+            
+            /* Phase Colors - Beautiful and Distinct */
+            --phase1-color: #f4c2c2;  /* Pastel Pink */
+            --phase2-color: #ff6b47;  /* Orange/Red */
+            --phase3-color: #8b4a9c;  /* Purple */
+            --phase4-color: #4a90e2;  /* Blue */
+            --phase5-color: #50c878;  /* Green */
+            --phase6-color: #e74c3c;  /* Red/Pink */
+            --phase7-color: #ffa500;  /* Orange/Yellow */
+            --phase8-color: #4682b4;  /* Steel Blue */
+            
+            --font-family: 'Avenir Next LTPro', 'Avenir Next', Avenir, 'Helvetica Neue', Arial, sans-serif;
+            --border-radius: 12px;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--ballard-black);
+            line-height: 1.6;
+        }
+        
+        /* ===== LIBRARY HEADER ===== */
+        .library-header {
+            background: var(--ballard-white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .library-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ballard-black);
+            margin-bottom: 1rem;
+        }
+        
+        .library-header p {
+            font-size: 1.2rem;
+            color: var(--ballard-gray);
+        }
+        
+        /* ===== CASE STUDIES GRID ===== */
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem;
+        }
+        
+        .case-card {
+            background: var(--ballard-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 6px solid;
+        }
+        
+        /* BEAUTIFUL PHASE-SPECIFIC COLORS */
+        
+        /* Phase 1 - Pastel Pink */
+        .phase1 { 
+            border-left-color: #f4c2c2 !important;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%) !important;
+        }
+        .phase1 .case-header {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%) !important;
+        }
+        .phase1 .phase-tag {
+            background: #f4c2c2 !important;
+            color: #333 !important;
+        }
+        
+        /* Phase 2 - Orange/Red */
+        .phase2 { 
+            border-left-color: #ff6b47 !important;
+            background: linear-gradient(135deg, #fff6f4 0%, #ffffff 100%) !important;
+        }
+        .phase2 .case-header {
+            background: linear-gradient(135deg, #ffe4db 0%, #ffccbc 100%) !important;
+        }
+        .phase2 .phase-tag {
+            background: #ff6b47 !important;
+            color: white !important;
+        }
+        
+        /* Phase 3 - Purple */
+        .phase3 { 
+            border-left-color: #8b4a9c !important;
+            background: linear-gradient(135deg, #f9f5fa 0%, #ffffff 100%) !important;
+        }
+        .phase3 .case-header {
+            background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%) !important;
+        }
+        .phase3 .phase-tag {
+            background: #8b4a9c !important;
+            color: white !important;
+        }
+        
+        /* Phase 4 - Blue */
+        .phase4 { 
+            border-left-color: #4a90e2 !important;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%) !important;
+        }
+        .phase4 .case-header {
+            background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%) !important;
+        }
+        .phase4 .phase-tag {
+            background: #4a90e2 !important;
+            color: white !important;
+        }
+        
+        /* Phase 5 - Green */
+        .phase5 { 
+            border-left-color: #50c878 !important;
+            background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 100%) !important;
+        }
+        .phase5 .case-header {
+            background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%) !important;
+        }
+        .phase5 .phase-tag {
+            background: #50c878 !important;
+            color: white !important;
+        }
+        
+        /* Phase 6 - Red/Pink */
+        .phase6 { 
+            border-left-color: #e74c3c !important;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%) !important;
+        }
+        .phase6 .case-header {
+            background: linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 100%) !important;
+        }
+        .phase6 .phase-tag {
+            background: #e74c3c !important;
+            color: white !important;
+        }
+        
+        /* Phase 7 - Orange/Yellow */
+        .phase7 { 
+            border-left-color: #ffa500 !important;
+            background: linear-gradient(135deg, #fffaf0 0%, #ffffff 100%) !important;
+        }
+        .phase7 .case-header {
+            background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%) !important;
+        }
+        .phase7 .phase-tag {
+            background: #ffa500 !important;
+            color: white !important;
+        }
+        
+        /* Phase 8 - Steel Blue */
+        .phase8 { 
+            border-left-color: #4682b4 !important;
+            background: linear-gradient(135deg, #f0f5fa 0%, #ffffff 100%) !important;
+        }
+        .phase8 .case-header {
+            background: linear-gradient(135deg, #b3d9f2 0%, #81c3e8 100%) !important;
+        }
+        .phase8 .phase-tag {
+            background: #4682b4 !important;
+            color: white !important;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .case-header {
+            padding: 1.5rem;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .case-tag {
+            background: var(--ballard-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .phase-tag {
+            font-weight: 700;
+        }
+        
+        .case-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ballard-black);
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-organization {
+            color: var(--ballard-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .case-body {
+            padding: 1.5rem;
+        }
+        
+        .case-summary {
+            color: var(--ballard-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .case-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--ballard-light-gray);
+            color: var(--ballard-black);
+        }
+        
+        .action-btn.primary {
+            background: var(--ballard-blue);
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Search and filters */
+        .search-filters {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-bar {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            min-width: 300px;
+            font-size: 1rem;
+        }
+        
+        .filter-select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            background: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .results-info {
+            margin: 1rem 2rem;
+            padding: 1rem;
+            background: var(--ballard-white);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Library Header -->
+    <div class="library-header">
+        <h1>Complete Case Research Library</h1>
+        <p>41 real-world AI social impact implementations across all Social Impact Cycle phases</p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-filters">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search organizations or topics..." onkeyup="filterCases()">
+        <select class="filter-select" id="phaseFilter" onchange="filterCases()">
+            <option value="">All Phases</option>
+            <option value="phase1">Phase 1: Love the One</option>
+            <option value="phase2">Phase 2: Identify & Understand</option>
+            <option value="phase3">Phase 3: Specify Outcome</option>
+            <option value="phase4">Phase 4: Co-create Intervention</option>
+            <option value="phase5">Phase 5: Implement & Iterate</option>
+            <option value="phase6">Phase 6: Measure & Evaluate</option>
+            <option value="phase7">Phase 7: Scale & Magnify</option>
+            <option value="phase8">Phase 8: Serve the Many</option>
+        </select>
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info" id="resultsInfo">
+        Showing 41 of 41 case studies
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="case-grid" id="caseGrid">
+        
+        <!-- PHASE 1 CASES - PASTEL PINK -->
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Speech Recognition</span>
+                </div>
+                <div class="case-title">Project Relate: AI for Speech Accessibility</div>
+                <div class="case-organization">Google Research</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI system that adapts to understand diverse speech patterns for people with speech impairments.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/01-google-project-relate.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Computer Vision</span>
+                </div>
+                <div class="case-title">Be My Eyes AI Visual Assistant</div>
+                <div class="case-organization">Be My Eyes</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered visual assistance app connecting blind users with volunteers and AI.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/02-be-my-eyes.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Crisis Support</span>
+                </div>
+                <div class="case-title">Crisis Text Line AI Triage</div>
+                <div class="case-organization">Crisis Text Line</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    NLP system prioritizing crisis conversations based on risk assessment.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/03-crisis-text-line-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Bias Reduction</span>
+                </div>
+                <div class="case-title">Monk Skin Tone Scale</div>
+                <div class="case-organization">Google Research</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Inclusive AI skin tone scale addressing bias in computer vision systems.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/03-monk-skin-tone-scale.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Human Trafficking</span>
+                </div>
+                <div class="case-title">Human Trafficking Detection</div>
+                <div class="case-organization">Polaris Project</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered analysis of trafficking hotline data to identify patterns and help survivors.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/04-polaris-human-trafficking.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Translation</span>
+                </div>
+                <div class="case-title">AI Translation for Refugees</div>
+                <div class="case-organization">Tarjimly</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Mobile app connecting refugees with volunteer translators using AI matching.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/04-tarjimly.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase1" data-phase="phase1">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 1: Love the One</span>
+                    <span class="case-tag">Mental Health</span>
+                </div>
+                <div class="case-title">AI Mental Health Support</div>
+                <div class="case-organization">Sonar</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered mental health screening and personalized intervention platform.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase1-love-the-one/05-sonar-mental-health.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2 CASES - ORANGE/RED -->
+        <div class="case-card phase2" data-phase="phase2">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 2: Identify & Understand</span>
+                    <span class="case-tag">Transparency</span>
+                </div>
+                <div class="case-title">Budget Transparency Through AI</div>
+                <div class="case-organization">BudgIT Nigeria</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered budget analysis making government spending transparent.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase2-identify-understand/06-budgit-nigeria.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase2" data-phase="phase2">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 2: Identify & Understand</span>
+                    <span class="case-tag">Food Security</span>
+                </div>
+                <div class="case-title">AI Hunger Prediction</div>
+                <div class="case-organization">World Food Programme</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Machine learning models predicting food insecurity for proactive response.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase2-identify-understand/07-world-food-program.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase2" data-phase="phase2">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 2: Identify & Understand</span>
+                    <span class="case-tag">Connectivity</span>
+                </div>
+                <div class="case-title">Mapping School Connectivity</div>
+                <div class="case-organization">Giga - UNICEF</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered mapping of school connectivity to bridge the digital divide.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase2-identify-understand/08-giga-unicef.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase2" data-phase="phase2">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 2: Identify & Understand</span>
+                    <span class="case-tag">Data Science</span>
+                </div>
+                <div class="case-title">Volunteer Data Science</div>
+                <div class="case-organization">DataKind Global</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Connecting volunteer data scientists with social organizations.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase2-identify-understand/09-datakind-global-analysis.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase2" data-phase="phase2">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 2: Identify & Understand</span>
+                    <span class="case-tag">Healthcare</span>
+                </div>
+                <div class="case-title">AI Health Stakeholder Mapping</div>
+                <div class="case-organization">DeepMind Health</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Comprehensive stakeholder analysis for implementing AI in healthcare.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase2-identify-understand/10-deepmind-health-stakeholders.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3 CASES - PURPLE -->
+        <div class="case-card phase3" data-phase="phase3">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 3: Specify Outcome</span>
+                    <span class="case-tag">Rural Development</span>
+                </div>
+                <div class="case-title">Rural Development Outcomes</div>
+                <div class="case-organization">IFAD</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered outcome specification for rural development programs.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase3-specify-outcome/10-ifad-rural-development.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase3" data-phase="phase3">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 3: Specify Outcome</span>
+                    <span class="case-tag">Impact Evaluation</span>
+                </div>
+                <div class="case-title">Evidence-Based Impact Design</div>
+                <div class="case-organization">3ie</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Using AI to design measurable development outcomes.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase3-specify-outcome/11-3ie-impact-evaluation.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase3" data-phase="phase3">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 3: Specify Outcome</span>
+                    <span class="case-tag">Research</span>
+                </div>
+                <div class="case-title">Innovations in Poverty Action</div>
+                <div class="case-organization">IPA</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI to specify and measure poverty alleviation outcomes.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase3-specify-outcome/12-innovations-poverty-action.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 4 CASES - BLUE -->
+        <div class="case-card phase4" data-phase="phase4">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 4: Co-create</span>
+                    <span class="case-tag">Maternal Health</span>
+                </div>
+                <div class="case-title">AI-Powered Maternal Health</div>
+                <div class="case-organization">ARMMAN</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    WhatsApp AI providing personalized maternal health information.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase4-co-create-intervention/13-armman-maternal-health.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase4" data-phase="phase4">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 4: Co-create</span>
+                    <span class="case-tag">Education</span>
+                </div>
+                <div class="case-title">Khanmigo AI Tutor</div>
+                <div class="case-organization">Khan Academy</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    GPT-4 powered personalized tutoring for adaptive learning.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase4-co-create-intervention/14-khan-academy-khanmigo.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase4" data-phase="phase4">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 4: Co-create</span>
+                    <span class="case-tag">Platform</span>
+                </div>
+                <div class="case-title">AI for Nonprofits</div>
+                <div class="case-organization">Microsoft</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI platform enabling nonprofits to co-create solutions.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase4-co-create-intervention/15-microsoft-ai-nonprofits.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase4" data-phase="phase4">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 4: Co-create</span>
+                    <span class="case-tag">Agriculture</span>
+                </div>
+                <div class="case-title">Smallholder Farmer Support</div>
+                <div class="case-organization">One Acre Fund</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-enhanced agricultural support co-created with farmers.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase4-co-create-intervention/16-one-acre-fund.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 5 CASES - GREEN -->
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Microfinance</span>
+                </div>
+                <div class="case-title">AI-Powered Microfinance</div>
+                <div class="case-organization">Grameen Foundation</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Machine learning for credit scoring and financial inclusion.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/17-grameen-foundation-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Healthcare</span>
+                </div>
+                <div class="case-title">AI Tuberculosis Detection</div>
+                <div class="case-organization">PATH</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Computer vision for automated TB detection from chest X-rays.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/18-path-ai-tuberculosis.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Humanitarian</span>
+                </div>
+                <div class="case-title">AI Crisis Response</div>
+                <div class="case-organization">Mercy Corps</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered crisis response and humanitarian aid distribution.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/19-mercy-corps-ventures-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Emergency Medicine</span>
+                </div>
+                <div class="case-title">AI Emergency Response</div>
+                <div class="case-organization">Doctors Without Borders</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for emergency medical response in conflict zones.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/20-doctors-without-borders-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Microlending</span>
+                </div>
+                <div class="case-title">AI-Enhanced Microlending</div>
+                <div class="case-organization">Kiva</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Machine learning for matching lenders with borrowers.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/21-kiva-ai-lending.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Child Welfare</span>
+                </div>
+                <div class="case-title">AI Child Protection</div>
+                <div class="case-organization">World Vision</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for child protection in vulnerable communities.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/22-world-vision-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase5" data-phase="phase5">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 5: Implement</span>
+                    <span class="case-tag">Leadership</span>
+                </div>
+                <div class="case-title">AI Leadership Training</div>
+                <div class="case-organization">Acumen Academy</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered leadership development for social entrepreneurs.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase5-implement-solution/23-acumen-academy-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 6 CASES - RED/PINK -->
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Effectiveness</span>
+                </div>
+                <div class="case-title">AI Charity Evaluation</div>
+                <div class="case-organization">GiveWell</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-enhanced evaluation of charity effectiveness and impact.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/24-givewell-ai-evaluation.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">RCTs</span>
+                </div>
+                <div class="case-title">AI-Powered RCTs</div>
+                <div class="case-organization">J-PAL</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Machine learning for designing randomized controlled trials.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/25-j-pal-ai-rcts.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Development</span>
+                </div>
+                <div class="case-title">Development Impact Evaluation</div>
+                <div class="case-organization">World Bank IEEG</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for evaluating development programs at scale.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/26-world-bank-ieeg-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Evidence</span>
+                </div>
+                <div class="case-title">AI Evidence Synthesis</div>
+                <div class="case-organization">Evidence Aid</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered synthesis of humanitarian evidence.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/27-evidenceaid-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Innovation</span>
+                </div>
+                <div class="case-title">Development Innovation Lab</div>
+                <div class="case-organization">USAID</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI tools for evaluating development innovations.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/28-usaid-dev-lab-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Impact Investment</span>
+                </div>
+                <div class="case-title">Impact Fund Evaluation</div>
+                <div class="case-organization">DFID</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-enhanced evaluation of impact investment outcomes.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/29-dfid-impact-fund-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase6" data-phase="phase6">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 6: Evaluate</span>
+                    <span class="case-tag">Reviews</span>
+                </div>
+                <div class="case-title">AI Systematic Reviews</div>
+                <div class="case-organization">Cochrane</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    Machine learning for systematic reviews of health interventions.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase6-evaluate-impact/30-cochrane-ai-reviews.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 7 CASES - ORANGE/YELLOW -->
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">Changemakers</span>
+                </div>
+                <div class="case-title">Changemaker AI Network</div>
+                <div class="case-organization">Ashoka</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI platform connecting and scaling social entrepreneurs.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/31-ashoka-changemaker-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">Global Health</span>
+                </div>
+                <div class="case-title">AI Health Scaling</div>
+                <div class="case-organization">Gates Foundation</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for scaling global health interventions.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/32-gates-foundation-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">Social Enterprise</span>
+                </div>
+                <div class="case-title">Social Enterprise Scaling</div>
+                <div class="case-organization">Skoll Foundation</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered platform for scaling social enterprises.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/33-skoll-foundation-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">Tech for Good</span>
+                </div>
+                <div class="case-title">Tech Impact Scaling</div>
+                <div class="case-organization">Omidyar Network</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI for identifying and scaling high-impact technology.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/34-omidyar-network-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">Resilience</span>
+                </div>
+                <div class="case-title">Resilience at Scale</div>
+                <div class="case-organization">Rockefeller Foundation</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI platform for scaling urban resilience solutions.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/35-rockefeller-foundation-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase7" data-phase="phase7">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 7: Scale</span>
+                    <span class="case-tag">AI & GPT-4</span>
+                </div>
+                <div class="case-title">Language Education at Scale</div>
+                <div class="case-organization">Duolingo</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    From PhD project to 500M+ users with AI personalization.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase7-scale-sustain/duolingo-ai-scaling-case-study.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 8 CASES - STEEL BLUE -->
+        <div class="case-card phase8" data-phase="phase8">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 8: Serve Many</span>
+                    <span class="case-tag">Education</span>
+                </div>
+                <div class="case-title">Global Education Network</div>
+                <div class="case-organization">Teach For All</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered teacher training across 60+ countries.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase8-love-more/36-teach-for-all-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase8" data-phase="phase8">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 8: Serve Many</span>
+                    <span class="case-tag">Public Health</span>
+                </div>
+                <div class="case-title">Polio Eradication AI</div>
+                <div class="case-organization">Rotary International</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for tracking and eradicating polio worldwide.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase8-love-more/37-rotary-polio-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase8" data-phase="phase8">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 8: Serve Many</span>
+                    <span class="case-tag">Knowledge Access</span>
+                </div>
+                <div class="case-title">AI Knowledge Expansion</div>
+                <div class="case-organization">Wikimedia Foundation</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI tools for expanding free knowledge to underserved languages.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase8-love-more/38-wikimedia-ai-expansion.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase8" data-phase="phase8">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 8: Serve Many</span>
+                    <span class="case-tag">Refugee Crisis</span>
+                </div>
+                <div class="case-title">Refugee Crisis AI</div>
+                <div class="case-organization">IRC</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI systems for coordinating refugee response globally.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase8-love-more/39-irc-refugee-crisis-ai.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-card phase8" data-phase="phase8">
+            <div class="case-header">
+                <div class="case-meta">
+                    <span class="case-tag phase-tag">Phase 8: Serve Many</span>
+                    <span class="case-tag">Telemedicine</span>
+                </div>
+                <div class="case-title">AI Telemedicine</div>
+                <div class="case-organization">Doctors Without Borders</div>
+            </div>
+            <div class="case-body">
+                <div class="case-summary">
+                    AI-powered telemedicine for remote medical support.
+                </div>
+                <div class="case-actions">
+                    <button class="action-btn primary" onclick="window.open('phase8-love-more/40-doctors-without-borders-telemedicine.html', '_blank')">Read Full Case</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function filterCases() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const phaseFilter = document.getElementById('phaseFilter').value;
+            
+            const allCases = document.querySelectorAll('.case-card');
+            let visibleCount = 0;
+            
+            allCases.forEach(caseCard => {
+                const title = caseCard.querySelector('.case-title').textContent.toLowerCase();
+                const org = caseCard.querySelector('.case-organization').textContent.toLowerCase();
+                const summary = caseCard.querySelector('.case-summary').textContent.toLowerCase();
+                
+                const matchesSearch = !searchTerm || 
+                    title.includes(searchTerm) || 
+                    org.includes(searchTerm) || 
+                    summary.includes(searchTerm);
+                
+                const matchesPhase = !phaseFilter || caseCard.dataset.phase === phaseFilter;
+                
+                if (matchesSearch && matchesPhase) {
+                    caseCard.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    caseCard.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('resultsInfo').textContent = 
+                `Showing ${visibleCount} of 41 case studies`;
+        }
+        
+        console.log('🎨 Complete Case Library with beautiful phase colors!');
+        console.log('📚 41 case studies loaded');
+    </script>
+</body>
+</html>
